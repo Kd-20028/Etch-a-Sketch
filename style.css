@@ -1,0 +1,23 @@
+body {
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    box-sizing: border-box;
+    display: flex;
+    width: 300px;
+    height: 300px;
+    flex-wrap: wrap;
+}
+
+.square {
+    flex-shrink: 1;
+    aspect-ratio: 1 / 1;
+    box-sizing: border-box;
+    border: 1px solid black;
+}
