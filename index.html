@@ -9,33 +9,62 @@
 </head>
 <body>
     
-    <div class="content">
-        <h1 class="text_shadows">Etch-A-Sketch</h1>
+    <div class="header">
+        <div class="content">
+            <h1 class="text_shadows">Etch-A-Sketch</h1>
+        </div>
+
+        <div class="nav">
+            
+        </div>
+
+</div>
+        </div>
+
     </div>
 
-    <div class="section">
+    <div class="mainContent">
 
-        <div class="section1">
+        <div class="border">
 
-            <div class="border">
-                <div class="container"></div>
+            <div class="toggles">
+                <div class="row">
+                    <div class="gridName">GRID</div>
+                  <div class="toggle-button-cover">
+                      <div class="button r" id="button-1">
+                        <input type="checkbox" class="checkbox" />
+                        <div class="knobs"></div>
+                        <div class="layer"></div>
+                      </div>
+                  </div>
+                </div>
 
-                <div class="buttons">
-                    <button class="changesize">CHANGE SIZE</button>
-                    <button class="clear">CLEAR</button>
+                <div class="row">
+                  <div class="toggle-button-cover">
+                      <div class="button r" id="button-2">
+                        <input type="checkbox" class="checkbox" />
+                        <div class="knobs"></div>
+                        <div class="layer"></div>
+                      </div>
+                  </div>
+                  <div class="eraserName">ERASER</div>
                 </div>
             </div>
 
-           
+            <div class="container"></div>
 
-        </div>
-      
+            <div class="settings">
+                <div class="buttons">
+                    <input type="color" name="CHANGE COLOR" id="changeColor">
+                    <div class="sizeText">16 X 16</div>
+                    <button class="clear">CLEAR</button>
+                </div>
+
+                <input type="range" min="1" max="100" value="50" class="changesize" id="boxsize">
+            </div>
+
 
     </div>
-   
     
-
-   
-
 </body>
 </html>

@@ -1,14 +1,14 @@
 body {
     font-family: canada-type-gibson, sans-serif;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     flex-direction: column;
     box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 25px;
-    background-color: #ededed;
+    background-color: #ebe8e2;
 }
 
 :root {
@@ -30,6 +30,8 @@ body {
     display: flex;
     align-content: center;
     justify-content: center;
+    align-self: center;
+    text-align: center;
   }
   
   .text_shadows {
@@ -152,15 +154,29 @@ body {
     }
   }
 
-.section{
+.header{
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 20px;
 }
-.section1 {
+
+.nav{
+    height: 30px;
+    width: 30px;
+    box-sizing: border-box;
+    position: absolute;
+    right: 200px;
+}
+
+
+.mainContent {
     display: flex;
-    flex-direction: column;
     gap: 10px;
 }
 .border{
+    flex: none;
     padding: 50px;
     padding-left: 75px;
     padding-right: 75px;
@@ -170,6 +186,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 40px;
+    filter: drop-shadow(0.30em 0.30em 0.8em #c00c3f) ;
 }
 .container{
     background-color: white;
@@ -185,19 +202,243 @@ body {
     flex-shrink: 1;
     aspect-ratio: 1 / 1;
     box-sizing: border-box;
+    border: 1px solid black;
+}
+
+.settings {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 30px;
 }
 
 .buttons{
     display: flex;
-    gap: 300px;
+    gap: 100px;
     justify-content: space-around;
 }
 
+button.clear {
+    margin: 8px;
+}
+
 .buttons button {
-    background-color: lightgrey;
+    font-family: bungee, sans-serif; 
+    font-size: 15px;
+    color: grey;
+    filter: drop-shadow(0.30em 0.30em 0.8em grey);
+    background-color: #ebe8e2;
     height: 100px;
     width: 100px;
     padding: 10px;
     border-radius: 50%;
     border: none;
+}
+
+.changesize {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;  
+    background: #d3d3d3;
+    outline: none;
+}
+
+.changesize::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%; 
+    background: #FFC300;
+    cursor: pointer;
+  }
+
+  .sizeText, .gridName, .eraserName {
+    font-size: 20px;
+    color: #ededed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .gridName, .eraserName {
+    height: 36px;
+    text-align: center;
+  }
+
+  .gridName{
+    width: 55px;
+  }
+ 
+  .eraserName {
+    width: 85px;
+    text-align: right;
+  }
+
+  #changeColor {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    width: 110px;
+    height: 110px;
+    border: none;
+    cursor: pointer;
+  }
+  #changeColor::-webkit-color-swatch {
+    border-radius: 50%;
+    filter: drop-shadow(0.30em 0.30em 0.8em grey);
+    padding: 10px;
+  }
+  #changeColor::-moz-color-swatch {
+    border-radius: 50%;
+    filter: drop-shadow(0.30em 0.30em 0.8em grey);
+    padding: 10px;
+  }
+
+  .toggle-button-cover {
+    display: table-cell;
+    position: relative;
+    width: 74px;
+    height: 36px;
+    box-sizing: border-box;
+  }
+  
+  .button-cover {
+    height: 100px;
+    margin: 20px;
+    background-color: #fff;
+    box-shadow: 0 10px 20px -8px #c5d6d6;
+    border-radius: 4px;
+  }
+  
+  .button-cover:before {
+    counter-increment: button-counter;
+    content: counter(button-counter);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: #d7e3e3;
+    font-size: 12px;
+    line-height: 1;
+    padding: 5px;
+  }
+  
+  .button-cover,
+  .knobs,
+  .layer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .button {
+    position: relative;
+    top: 50%;
+    width: 74px;
+    height: 36px;
+    margin: -20px auto 0 auto;
+    overflow: hidden;
+  }
+  
+  .button.r,
+  .button.r .layer {
+    border-radius: 100px;
+  }
+  
+  .button.b2 {
+    border-radius: 2px;
+  }
+  
+  .checkbox {
+    align-self: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 3;
+  }
+  
+  .knobs {
+    z-index: 2;
+  }
+  
+  .layer {
+    width: 100%;
+    background-color: #ebf7fc;
+    transition: 0.3s ease all;
+    z-index: 1;
+  }
+  
+  /* Button 1 */
+  #button-1 .knobs:before, #button-2 .knobs:before {
+    content: "ON";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 20px;
+    height: 10px;
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1;
+    padding: 9px 4px;
+    background-color: #FFC300;
+    border-radius: 50%;
+    transition: 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
+  }
+  
+  #button-2 .knobs:before{
+    content: "OFF";
+    background-color: #981845;
+  }
+
+  #button-1 .checkbox:checked + .knobs:before, #button-2 .checkbox:checked + .knobs:before {
+    content: "OFF";
+    left: 42px;
+    background-color: #981845;
+  }
+
+  #button-2 .checkbox:checked + .knobs:before {
+    content: "ON";
+    background-color: #FFC300;
+  }
+  
+  #button-1 .checkbox:checked ~ .layer,  #button-2 .checkbox:checked ~ .layer {
+    background-color: #fcebeb;
+  }
+  
+  #button-1 .knobs,
+  #button-1 .knobs:before,
+  #button-1 .layer, 
+  #button-2 .knobs,
+  #button-2 .knobs:before,
+  #button-2 .layer {
+    transition: 0.3s ease all;
+  }
+  
+.row {
+    display: flex;
+    justify-content: center;
+    height: 1%;
+    width: 100%;
+}
+
+p{
+    margin: 0px;
+    text-align: center;
+    height: 0px;
+    color: #ededed;
+    align-self: center;
+}
+
+.toggles{
+    display: flex;
 }
