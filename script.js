@@ -1,14 +1,18 @@
 
 let container = document.querySelector(".container"); 
+let changeSizeButton = document.querySelector(".changesize");
+let clear = document.querySelector(".clear");  
 let square;
 
 
 function generateSquares(number){
 
-    let width = (90000/(number * number)); 
+    let width = (250000/(number * number)); 
     width = Math.sqrt(width); 
-    let height = (90000/(number * number)); 
+    let height = (250000/(number * number)); 
     height = Math.sqrt(height); 
+
+    container.innerHTML = ''; 
 
     for (let x = 0; x < number * number; x++){
         square = document.createElement('div'); 
@@ -19,8 +23,44 @@ function generateSquares(number){
     }   
 }
 
+function getSize(){
+    let size = prompt("Enter A Size: ", 16);
+    if (size < 100 && size > 0){
+        return size; 
+    }
+    else {
+        return "Invalid Size"; 
+    }
+    
+}
 
-generateSquares(10); 
+function startover(){
+    const squares = document.querySelectorAll(".square");
+    const squareArray = [...squares];  
+
+    squareArray.forEach((square) => {
+        
+        square.addEventListener("mouseover", function (){
+            square.style.backgroundColor = "black"; 
+        });
+    
+        clear.addEventListener("click", function (){
+            square.style.backgroundColor = "white"; 
+        });
+    });    
+}
+
+generateSquares(16); 
+
+changeSizeButton.addEventListener("click", function (){
+    let size = getSize(); 
+    squareArray.forEach((square) => {
+        square.remove(); 
+    }); 
+    generateSquares(size); 
+    startover();
+})
+  
 
 const squares = document.querySelectorAll(".square");
 const squareArray = [...squares];  
@@ -29,5 +69,10 @@ squareArray.forEach((square) => {
     square.addEventListener("mouseover", function (){
         square.style.backgroundColor = "black"; 
     });
+
+    clear.addEventListener("click", function (){
+        square.style.backgroundColor = "white"; 
+    });
 });
-  
+
+
