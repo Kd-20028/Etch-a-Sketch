@@ -47,12 +47,36 @@ function startover(){
     squareArray.forEach((square) => {
         
         square.addEventListener("mouseover", function (){
-            square.style.backgroundColor = "black"; 
+            square.style.backgroundColor = changeColor(); 
         });
     
         clear.addEventListener("click", function (){
             square.style.backgroundColor = "white"; 
         });
+
+        grid.addEventListener("change", function(){
+            if (this.checked) {
+                square.style.border = "none"; 
+              } else {
+                square.style.border = "1px solid black";
+                square.addEventListener("mouseover", function (){
+                    square.style.backgroundColor = changeColor(); 
+                });
+              }
+        })
+    
+        eraser.addEventListener("change", function(){
+            if (this.checked) {
+                square.addEventListener("mouseover", function (){
+                    square.style.backgroundColor = "white"; 
+                }); 
+            }
+            else{
+                square.addEventListener("mouseover", function (){
+                    square.style.backgroundColor = changeColor(); 
+                }); 
+            }
+        }); 
     });    
 }
 
@@ -92,7 +116,11 @@ squareArray.forEach((square) => {
         if (this.checked) {
             square.style.border = "none"; 
           } else {
-            square.style.border = "1px solid black"; 
+            square.style.border = "1px solid black";
+            square.addEventListener("mouseover", function (){
+                square.style.backgroundColor = changeColor(); 
+        
+            });
           }
     })
 
@@ -104,7 +132,7 @@ squareArray.forEach((square) => {
         }
         else{
             square.addEventListener("mouseover", function (){
-                square.style.backgroundColor = color; 
+                square.style.backgroundColor = changeColor(); 
             }); 
         }
     }); 
