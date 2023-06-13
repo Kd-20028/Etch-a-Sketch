@@ -10,13 +10,9 @@ This program is a digital version of the classic Etch-A-Sketch toy. It allows us
   - Users can use their mouse to click on cells in the grid to draw.
 
 # Usage
-  - Clone or download the repository to your local machine.
-  - Open the index.html file in a web browser.
-  - Use your mouse to hover over cells to color them in.
-  - The grid button will toggle the grid on and off. 
-  - The eraser button will toggle the eraser on and off. 
-  - The slider at the bottom allow for the gird size to be adjusted. 
-
+  - Visit https://kd-20028.github.io/Etch-a-Sketch/
+  - Adjust the setting using buttons and toggles.
+  - Click the clear button to reset the drawing.
 
 # Technologies Used
   ## This program is built using the following technologies:
